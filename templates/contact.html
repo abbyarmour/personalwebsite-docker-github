@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Contact • Add a Project</title>
+    <meta name="description" content="Get in touch with Abby Armour." />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}" />
+  </head>
+
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+      <div class="container header-inner">
+        <img
+          src="{{ url_for('static', filename='images/Headshot.JPEG') }}"
+          width="120"
+          height="120"
+          alt="Headshot of Abby Armour"
+          class="logo"
+        />
+        <div>
+          <h1 class="site-title">Abby Armour</h1>
+          <p class="site-tagline">Information Systems • Consulting • Baddie</p>
+        </div>
+      </div>
+
+      <nav class="site-nav" aria-label="Primary">
+        <div class="container">
+          <a href="{{ url_for('home') }}">Home</a>
+          <a href="{{ url_for('about') }}">About Me</a>
+          <a href="{{ url_for('resume') }}">Resume</a>
+          <a href="{{ url_for('projects') }}">Projects/Database</a>
+          <a href="{{ url_for('contact') }}" aria-current="page">Contact/Add a Project</a>
+        </div>
+      </nav>
+    </header>
+
+    <main id="main" class="container" tabindex="-1">
+      <section class="card" aria-labelledby="contact-info-title">
+        <h2 id="contact-info-title">Contact</h2>
+        <ul>
+          <li>Email: <a href="mailto:ararmour@iu.edu">ararmour@iu.edu</a></li>
+          <li>
+            LinkedIn:
+            <a
+              href="https://www.linkedin.com/in/abbyarmour"
+              target="_blank"
+              rel="noopener"
+              >linkedin.com/in/abbyarmour</a
+            >
+          </li>
+          <li>
+            GitHub:
+            <a
+              href="https://github.com/abbyarmour"
+              target="_blank"
+              rel="noopener"
+              >github.com/abbyarmour</a
+            >
+          </li>
+        </ul>
+      </section>
+
+      <section class="card" aria-labelledby="form-title">
+        <h2 id="form-title">Send a Message</h2>
+        <p>
+          All fields are required. Your password must be at least 8 characters.
+        </p>
+
+        <!-- For assignment/demo: redirect to thankyou.html -->
+        <form id="contact-form" action="{{ url_for('thankyou') }}" method="get" novalidate>
+          <div class="row">
+            <div>
+              <label for="firstName">First Name</label>
+              <input
+                id="firstName"
+                name="firstName"
+                type="text"
+                required
+                autocomplete="given-name"
+              />
+              <span class="error" id="firstNameError" aria-live="polite"></span>
+            </div>
+
+            <div>
+              <label for="lastName">Last Name</label>
+              <input
+                id="lastName"
+                name="lastName"
+                type="text"
+                required
+                autocomplete="family-name"
+              />
+              <span class="error" id="lastNameError" aria-live="polite"></span>
+            </div>
+
+            <div class="full">
+              <label for="email">Email Address</label>
+              <input
+                id="email"
+                name="email"
+                type="email"
+                required
+                autocomplete="email"
+                inputmode="email"
+              />
+              <span class="error" id="emailError" aria-live="polite"></span>
+            </div>
+
+            <div>
+              <label for="password">Password</label>
+              <input
+                id="password"
+                name="password"
+                type="password"
+                required
+                minlength="8"
+                autocomplete="new-password"
+              />
+              <span class="error" id="passwordError" aria-live="polite"></span>
+            </div>
+
+            <div>
+              <label for="confirmPassword">Confirm Password</label>
+              <input
+                id="confirmPassword"
+                name="confirmPassword"
+                type="password"
+                required
+                minlength="8"
+                autocomplete="new-password"
+              />
+              <span class="error" id="confirmError" aria-live="polite"></span>
+            </div>
+          </div>
+
+          <div class="actions">
+            <button class="button" type="submit">Submit</button>
+            <button class="button" type="reset">Reset</button>
+          </div>
+        </form>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        © <span id="year"></span> Abby Armour •
+        <a href="mailto:ararmour@iu.edu">ararmour@iu.edu</a> •
+        <a
+          href="https://www.linkedin.com/in/abbyarmour"
+          target="_blank"
+          rel="noopener"
+          >LinkedIn</a
+        >
+      </div>
+    </footer>
+
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+
+      // Minimal accessible validation (no CSS required)
+      const form = document.getElementById("contact-form");
+      const firstName = document.getElementById("firstName");
+      const lastName = document.getElementById("lastName");
+      const email = document.getElementById("email");
+      const password = document.getElementById("password");
+      const confirmPassword = document.getElementById("confirmPassword");
+
+      const errs = {
+        firstName: document.getElementById("firstNameError"),
+        lastName: document.getElementById("lastNameError"),
+        email: document.getElementById("emailError"),
+        password: document.getElementById("passwordError"),
+        confirm: document.getElementById("confirmError"),
+      };
+
+      function clearError(el, errSpan) {
+        el.setCustomValidity("");
+        errSpan.textContent = "";
+      }
+
+      function showFieldError(el, errSpan, msg) {
+        el.setCustomValidity(msg);
+        errSpan.textContent = msg;
+      }
+
+      function validateConfirm() {
+        if (confirmPassword.value !== password.value) {
+          showFieldError(
+            confirmPassword,
+            errs.confirm,
+            "Passwords must match."
+          );
+          return false;
+        }
+        clearError(confirmPassword, errs.confirm);
+        return true;
+      }
+
+      [firstName, lastName, email, password, confirmPassword].forEach((el) => {
+        el.addEventListener("input", () => {
+          const span =
+            el === firstName
+              ? errs.firstName
+              : el === lastName
+              ? errs.lastName
+              : el === email
+              ? errs.email
+              : el === password
+              ? errs.password
+              : errs.confirm;
+
+          clearError(el, span);
+          if (el === confirmPassword || el === password) validateConfirm();
+        });
+      });
+
+      form.addEventListener("submit", (e) => {
+        if (!form.checkValidity()) {
+          if (!firstName.validity.valid)
+            showFieldError(
+              firstName,
+              errs.firstName,
+              "First name is required."
+            );
+          if (!lastName.validity.valid)
+            showFieldError(lastName, errs.lastName, "Last name is required.");
+          if (email.validity.valueMissing)
+            showFieldError(email, errs.email, "Email is required.");
+          else if (email.validity.typeMismatch)
+            showFieldError(email, errs.email, "Enter a valid email address.");
+          if (password.validity.valueMissing)
+            showFieldError(password, errs.password, "Password is required.");
+          else if (password.validity.tooShort)
+            showFieldError(
+              password,
+              errs.password,
+              "Password must be at least 8 characters."
+            );
+          validateConfirm();
+          e.preventDefault();
+          return;
+        }
+        if (!validateConfirm()) {
+          e.preventDefault();
+          confirmPassword.reportValidity();
+        }
+        // success -> continues to thankyou.html
+      });
+    </script>
+  
+<section class="add-project card" aria-labelledby="addproj-title">
+  <h2 id="addproj-title">Add a Project</h2>
+  <p class="muted">Add a new portfolio project</p>
+  {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+      {% for category, msg in messages %}<div class="flash {{ category }}">{{ msg }}</div>{% endfor %}
+    {% endif %}
+  {% endwith %}
+  <form action="{{ url_for('contact') }}" method="post" class="row" novalidate>
+    <label for="Title">Title</label>
+    <input id="Title" name="Title" required>
+    <label for="Description">Description</label>
+    <textarea id="Description" name="Description" rows="4" required></textarea>
+    <label for="ImageFileName">Image File Name</label>
+    <input id="ImageFileName" name="ImageFileName" required placeholder="project1.png">
+    <button class="button" type="submit">Add Project</button>
+  </form>
+</section>
+
+</body>
+</html>

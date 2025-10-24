@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Resume — Abby Armour</title>
+    <meta
+      name="description"
+      content="Resume for Abby Armour: education, experience, leadership, projects, and technical skills."
+    />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}" />
+  </head>
+
+  <body>
+    <a class="skip-link" href="#main">Skip to main content</a>
+
+    <header class="site-header">
+      <div class="container header-inner">
+        <img
+          src="{{ url_for('static', filename='images/Headshot.JPEG') }}"
+          width="120"
+          height="120"
+          alt="Headshot of Abby Armour"
+          class="logo"
+          loading="eager"
+          decoding="async"
+        />
+        <div>
+          <h1 class="site-title">Abby Armour</h1>
+          <p class="site-tagline">Information Systems • Consulting • Baddie</p>
+        </div>
+      </div>
+
+      <nav class="site-nav" aria-label="Primary">
+        <div class="container">
+          <a href="{{ url_for('home') }}">Home</a>
+          <a href="{{ url_for('about') }}">About Me</a>
+          <a href="{{ url_for('resume') }}" aria-current="page">Resume</a>
+          <a href="{{ url_for('projects') }}">Projects/Database</a>
+          <a href="{{ url_for('contact') }}">Contact/Add a Project</a>
+        </div>
+      </nav>
+    </header>
+
+    <main id="main" class="container">
+      <!-- Contact / Header -->
+      <section class="card" aria-labelledby="contact-heading">
+        <h2 id="contact-heading" class="visually-hidden">Contact</h2>
+        <p style="margin: 0">
+          <strong>ABBY ARMOUR</strong> •
+          <a href="mailto:ararmour@iu.edu">ararmour@iu.edu</a> •
+          <a href="tel:+13173789887">317-378-9887</a> •
+          <a
+            href="https://www.linkedin.com/in/abbyarmour"
+            target="_blank"
+            rel="noopener"
+            >linkedin.com/in/abbyarmour</a
+          >
+        </p>
+      </section>
+
+      <!-- Education -->
+      <section class="card" aria-labelledby="edu-heading">
+        <h2 id="edu-heading">Education</h2>
+
+        <article>
+          <header>
+            <h3 style="margin-bottom: 0.1rem">
+              Indiana University, Kelley School of Business — Bloomington, IN
+            </h3>
+            <p style="margin: 0; color: #6b7280">
+              Master of Science in Information Systems •
+              <time datetime="2026-05">May 2026</time>
+            </p>
+          </header>
+        </article>
+
+        <hr
+          style="border: 0; border-top: 1px solid var(--border); margin: 1rem 0"
+        />
+
+        <article>
+          <header>
+            <h3 style="margin-bottom: 0.1rem">
+              Indiana University, Kelley School of Business — Bloomington, IN
+            </h3>
+            <p style="margin: 0; color: #6b7280">
+              Bachelor of Science in Information Systems and Business Law,
+              Ethics, &amp; Decision-Making •
+              <time datetime="2025-05">May 2025</time>
+            </p>
+            <p style="margin: 0.25rem 0 0 0">GPA: 3.5/4.00</p>
+          </header>
+          <ul class="checklist" style="margin-top: 0.5rem">
+            <li>
+              Case Competitions/Hackathons: MSIS 3+1 Winner (Feb 2025), 2nd
+              Place TechPoint &amp; E-gineering Hackathon (Jul 2025), EY SAP ERP
+              Simulation Finalist (May 2024)
+            </li>
+            <li>
+              Peer Tutor, Computers in Business: Guided students in Excel and
+              Access fundamentals
+            </li>
+          </ul>
+        </article>
+      </section>
+
+      <!-- Experience -->
+      <section class="card" aria-labelledby="exp-heading">
+        <h2 id="exp-heading">Experience</h2>
+
+        <article>
+          <header>
+            <h3 style="margin-bottom: 0.1rem">
+              Informatics and Information Services Intern — Indiana University
+              Health
+            </h3>
+            <p style="margin: 0; color: #6b7280">
+              Indianapolis, IN • <time datetime="2025-05">May 2025</time> –
+              <time datetime="2025-08">August 2025</time>
+            </p>
+          </header>
+          <ul class="checklist" style="margin-top: 0.5rem">
+            <li>
+              Researched emerging AI use cases in healthcare (e.g., clinical
+              documentation, staffing optimization) to inform internal strategy;
+              drafted enterprise AI policy and contributed to governance on
+              model bias, ethical risks, and patient trust.
+            </li>
+            <li>
+              Led an application rationalization project using Excel and Power
+              BI to organize budget and vendor data, identifying redundancies
+              and supporting cost-saving decisions.
+            </li>
+          </ul>
+        </article>
+
+        <hr
+          style="border: 0; border-top: 1px solid var(--border); margin: 1rem 0"
+        />
+
+        <article>
+          <header>
+            <h3 style="margin-bottom: 0.1rem">
+              Corporate Sales Analyst Intern — Uline
+            </h3>
+            <p style="margin: 0; color: #6b7280">
+              Pleasant Prairie, WI • <time datetime="2024-05">May 2024</time> –
+              <time datetime="2024-08">August 2024</time>
+            </p>
+          </header>
+          <ul class="checklist" style="margin-top: 0.5rem">
+            <li>
+              Leveraged SQL and Excel to analyze $50M+ in sales data and build
+              Power BI dashboards, identifying key trends to guide strategic
+              planning by sales leadership.
+            </li>
+            <li>
+              Conducted sales and GDP analysis for Mexico to inform data-driven
+              territory planning and support market expansion strategy.
+            </li>
+          </ul>
+        </article>
+      </section>
+
+      <!-- Leadership -->
+      <section class="card" aria-labelledby="lead-heading">
+        <h2 id="lead-heading">Leadership</h2>
+
+        <article>
+          <header>
+            <h3 style="margin-bottom: 0.1rem">
+              President — MS in Information Systems Association (MSISA)
+            </h3>
+            <p style="margin: 0; color: #6b7280">
+              <time datetime="2025-05">May 2025</time> – Present
+            </p>
+          </header>
+          <ul class="checklist" style="margin-top: 0.5rem">
+            <li>
+              Lead an 8-member executive board overseeing student engagement,
+              employer relations, cultural programming, and operations; guide
+              strategic planning and execution.
+            </li>
+            <li>
+              Set priorities and provide hands-on support across initiatives
+              from budgeting and logistics to alumni and employer partnerships.
+            </li>
+          </ul>
+        </article>
+
+        <hr
+          style="border: 0; border-top: 1px solid var(--border); margin: 1rem 0"
+        />
+
+        <article>
+          <header>
+            <h3 style="margin-bottom: 0.1rem">
+              President — Computer Science Club
+            </h3>
+            <p style="margin: 0; color: #6b7280">
+              <time datetime="2024-08">August 2024</time> –
+              <time datetime="2025-05">May 2025</time>
+            </p>
+          </header>
+          <ul class="checklist" style="margin-top: 0.5rem">
+            <li>
+              Directed a board of 9 officers; led a university-wide hackathon
+              with 200+ participants; grew engagement by 50% through workshops,
+              coding challenges, and career prep seminars.
+            </li>
+            <li>
+              Managed social media strategy and analyzed engagement metrics to
+              build an online tech community of 40–50+ active members.
+            </li>
+          </ul>
+        </article>
+
+        <hr
+          style="border: 0; border-top: 1px solid var(--border); margin: 1rem 0"
+        />
+
+        <article>
+          <header>
+            <h3 style="margin-bottom: 0.1rem">
+              External Relations Coordinator — Red Capes Bloomington Non-Profit
+            </h3>
+            <p style="margin: 0; color: #6b7280">
+              <time datetime="2024-11">November 2024</time> –
+              <time datetime="2025-05">May 2025</time>
+            </p>
+          </header>
+          <ul class="checklist" style="margin-top: 0.5rem">
+            <li>
+              Developed and organized events with student organizations to
+              address food insecurity in Bloomington.
+            </li>
+            <li>
+              Facilitated partner communication, ensuring coordination,
+              deadlines, and continuous improvement via post-event feedback.
+            </li>
+          </ul>
+        </article>
+      </section>
+
+      <!-- Academic Projects -->
+      <section class="card" aria-labelledby="proj-heading">
+        <h2 id="proj-heading">Academic Projects</h2>
+        <article>
+          <header>
+            <h3 style="margin-bottom: 0.1rem">
+              Digital Human Integration in Healthcare — Case Competition
+            </h3>
+            <p style="margin: 0; color: #6b7280">
+              <time datetime="2025-02">February 2025</time>
+            </p>
+          </header>
+          <ul class="checklist" style="margin-top: 0.5rem">
+            <li>
+              Developed a consulting strategy for integrating digital humans at
+              IU Health, including pre/post-appointment use, staff training, and
+              a pediatric therapy initiative at Riley Hospital.
+            </li>
+            <li>
+              Created implementation timelines, financial projections, and risk
+              matrices, emphasizing ethical AI adoption for responsible
+              deployment.
+            </li>
+          </ul>
+        </article>
+      </section>
+
+      <!-- Technical Skills -->
+      <section class="card" aria-labelledby="tech-heading">
+        <h2 id="tech-heading">Technical</h2>
+        <ul class="checklist" style="margin-top: 0.5rem">
+          <li>
+            <strong>Data Analysis &amp; Visualization:</strong> Excel, Tableau,
+            Power BI, Access
+          </li>
+          <li><strong>Platforms:</strong> SAP S/4 HANA, NetSuite</li>
+          <li><strong>Database &amp; Query:</strong> SQL</li>
+          <li><strong>Web &amp; Interface:</strong> HTML/CSS</li>
+          <li>
+            <strong>Methodologies &amp; Tools:</strong> Agile (Scrum), Jira
+          </li>
+        </ul>
+      </section>
+
+      <!-- Additional -->
+      <section class="card" aria-labelledby="addl-heading">
+        <h2 id="addl-heading">Additional</h2>
+        <p style="margin-top: 0.5rem">
+          Swimming • Volunteering • Hiking • Project Management • Women’s
+          College Basketball • WNBA • Leadership
+        </p>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        © <span id="year"></span> Abby Armour •
+        <a href="mailto:ararmour@iu.edu">ararmour@iu.edu</a> •
+        <a
+          href="https://www.linkedin.com/in/abbyarmour"
+          target="_blank"
+          rel="noopener"
+          >LinkedIn</a
+        >
+        <a
+        href="https://github.com/abbyarmour/AiDD_Assignment-5"
+        target="_blank"
+        rel="noopener"
+        > • GitHub Repo</a>
+      </div>
+    </footer>
+
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>

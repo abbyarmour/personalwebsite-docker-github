@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Thanks! • Abby Armour</title>
+    <meta name="description" content="Thank you for your message." />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}" />
+    <style>
+      .centered {
+        text-align: center;
+        padding: 3rem 1rem;
+      }
+      .centered p {
+        color: #374151;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <img
+          src="{{ url_for('static', filename='images/Headshot.JPEG') }}"
+          width="120"
+          height="120"
+          alt="Headshot of Abby Armour"
+          class="logo"
+        />
+        <div>
+          <h1 class="site-title">Abby Armour</h1>
+          <p class="site-tagline">Information Systems • Consulting • Baddie</p>
+        </div>
+      </div>
+
+      <nav class="site-nav" aria-label="Primary">
+        <div class="container">
+          <a href="{{ url_for('home') }}">Home</a>
+          <a href="{{ url_for('about') }}">About Me</a>
+          <a href="{{ url_for('resume') }}">Resume</a>
+          <a href="{{ url_for('projects') }}">Projects/Database</a>
+          <a href="{{ url_for('contact') }}" aria-current="page">Contact/Add a Project</a>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container">
+      <section class="card centered" aria-labelledby="ty-title">
+        <h2 id="ty-title">Thank you!</h2>
+        <p>Your submission was received. I’ll get back to you soon.</p>
+        <p><a class="button" href="{{ url_for('home') }}">Back to Home</a></p>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        © <span id="year"></span> Abby Armour •
+        <a href="mailto:ararmour@iu.edu">ararmour@iu.edu</a> •
+        <a
+          href="https://www.linkedin.com/in/abbyarmour"
+          target="_blank"
+          rel="noopener"
+          >LinkedIn</a
+        >
+        <a
+          href="https://github.com/abbyarmour/AiDD_Assignment-5"
+          target="_blank"
+          rel="noopener"
+        >
+          • GitHub Repo</a
+        >
+      </div>
+    </footer>
+
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>

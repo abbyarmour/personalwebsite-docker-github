@@ -1,0 +1,192 @@
+<!-- projects.html -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Projects — Abby Armour</title>
+    <meta
+      name="description"
+      content="Selected projects by Abby Armour — analytics and digital health strategy."
+    />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}" />
+  </head>
+
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+      <div class="container header-inner">
+        <img
+          src="{{ url_for('static', filename='images/Headshot.JPEG') }}"
+          width="120"
+          height="120"
+          alt="Headshot of Abby Armour"
+          class="logo"
+        />
+        <div>
+          <h1 class="site-title">Abby Armour</h1>
+          <p class="site-tagline">Information Systems • Consulting • Baddie</p>
+        </div>
+      </div>
+
+      <nav class="site-nav" aria-label="Primary">
+        <div class="container">
+          <a href="{{ url_for('home') }}">Home</a>
+          <a href="{{ url_for('about') }}">About Me</a>
+          <a href="{{ url_for('resume') }}">Resume</a>
+          <a href="{{ url_for('projects') }}" aria-current="page">Projects/Database</a>
+          <a href="{{ url_for('contact') }}">Contact/Add a Project</a>
+        </div>
+      </nav>
+    </header>
+
+    <main id="main" class="container" tabindex="-1">
+      <section class="hero" style="padding-block: 1.5rem">
+        <div class="hero-text">
+          <h2>Selected Projects</h2>
+          <p>
+            Two highlights: one analytics-focused storyboard and one digital
+            health strategy case.
+          </p>
+        </div>
+      </section>
+
+      <!-- Projects grid (2 items) -->
+      <section aria-label="Projects list" class="projects-grid">
+        <!-- Project 1: Healthcare Analytics Storyboard -->
+        <article class="project-card card" data-type="analytics">
+          <div class="project-media">
+            <img
+                src="{{ url_for('static', filename='images/image.png') }}"
+                alt="Analytics storyboard with trends and KPI tiles"
+                class="responsive-img"
+                width="260"
+                />
+                <img
+                src="{{ url_for('static', filename='images/image (1).png') }}"
+                alt="Analytics storyboard with trends and KPI tiles"
+                class="responsive-img"
+                width="260"
+                />
+          </div>
+          <div class="project-body">
+            <h3 class="project-title">Healthcare Analytics Storyboard</h3>
+            <p class="project-summary">
+              Consolidated budget/vendor data for software application rationalization
+              and optimization and researched AI use cases (e.g., documentation & staffing
+              optimization) to inform internal strategy.
+            </p>
+            <ul class="stack">
+              <li>Power BI</li>
+              <li>Excel</li>
+              <li>Research</li>
+            </ul>
+            <div class="badges">
+              <span class="badge">Analytics</span>
+            </div>
+    
+        </article>
+
+        <!-- Project 2: Digital Human Integration in Healthcare -->
+        <article class="project-card card" data-type="strategy">
+          <div class="project-media">
+            <img
+              src="{{ url_for('static', filename='images/DH.png') }}"
+              class="responsive-img"
+              width="260"
+            />
+            <img
+              src="{{ url_for('static', filename='images/DH2.png') }}"
+              class="responsive-img"
+              width="260"
+            />
+          </div>
+          <div class="project-body">
+            <h3 class="project-title">
+              Digital Human Integration in Healthcare — Case Competition
+              <span class="muted" style="font-weight: normal"></span>
+            </h3>
+            <p class="project-summary">
+              Developed a consulting strategy for integrating digital humans
+              into IU Health with recommendations for pre- and post-appointment
+              use, staff training, and a pediatric therapy initiative at Riley
+              Hospital.
+            </p>
+            <p class="project-summary" style="margin-top: 0.4rem">
+              Designed implementation timelines, financial projections, and risk
+              matrices, emphasizing ethical AI adoption to guide responsible and
+              sustainable deployment.
+            </p>
+            <ul class="stack">
+              <li>Strategy</li>
+              <li>Healthcare</li>
+              <li>Ethical AI</li>
+              <li>Financial Modeling</li>
+            </ul>
+            <div class="badges">
+              <span class="badge">Strategy</span>
+              <span class="badge">Digital Health</span>
+            </div>
+            <div class="project-links">
+            </div>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        © <span id="year"></span> Abby Armour •
+        <a href="mailto:ararmour@iu.edu">ararmour@iu.edu</a> •
+        <a
+          href="https://www.linkedin.com/in/abbyarmour"
+          target="_blank"
+          rel="noopener"
+          >LinkedIn</a
+        >
+        <a
+        href="https://github.com/abbyarmour/AiDD_Assignment-5"
+        target="_blank"
+        rel="noopener"
+        > • GitHub Repo</a>
+      </div>
+    </footer>
+
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  
+<!-- DB-backed projects table (appended; preserves Abby's original layout above) -->
+<section class="db-projects">
+  <h2>Projects (Database)</h2>
+  <p class="muted">Projects uploaded from the database. 67.</code>.</p>
+  <table class="projects-table" role="table" style="width:100%;border-collapse:collapse">
+    <thead>
+      <tr><th>Image</th><th>Title</th><th>Description</th><th>Actions</th></tr>
+    </thead>
+    <tbody>
+      {% for id, Title, Description, ImageFileName in projects %}
+      <tr>
+        <td style="padding:.5rem">
+          <a href="{{ url_for('static', filename='images/' ~ ImageFileName) }}" target="_blank" rel="noopener">
+            <img src="{{ url_for('static', filename='images/' ~ ImageFileName) }}" alt="Screenshot of {{ Title }}" style="max-width:220px;height:auto">
+          </a>
+          <div class="filehint">{{ ImageFileName }}</div>
+        </td>
+        <td style="padding:.5rem"><strong>{{ Title }}</strong></td>
+        <td style="padding:.5rem">{{ Description }}</td>
+        <td style="padding:.5rem">
+          <form action="{{ url_for('delete_project', project_id=id) }}" method="post" onsubmit="return confirm('Delete this project?')">
+            <button class="button" type="submit">Delete</button>
+          </form>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</section>
+
+</body>
+</html>

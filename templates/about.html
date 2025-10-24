@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>About Me — Abby Armour</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}" />
+  </head>
+
+  <body>
+    <!-- Skip link for accessibility -->
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <!-- Header matches .site-header and .header-inner -->
+    <header class="site-header">
+      <div class="container header-inner">
+        <img
+          src="{{ url_for('static', filename='images/Headshot.JPEG') }}"
+          width="120"
+          height="120"
+          alt="Four circles logo"
+          class="logo"
+        />
+        <div>
+          <h1 class="site-title">Abby Armour</h1>
+          <p class="site-tagline">Information Systems • Consulting • Baddie</p>
+        </div>
+      </div>
+
+      <!-- Nav matches .site-nav -->
+      <nav class="site-nav" aria-label="Primary">
+        <div class="container">
+          <a href="{{ url_for('home') }}">Home</a>
+          <a href="{{ url_for('about') }}" aria-current="page">About Me</a>
+          <a href="{{ url_for('resume') }}">Resume</a>
+          <a href="{{ url_for('projects') }}">Projects/Database</a>
+          <a href="{{ url_for('contact') }}">Contact/Add a Project</a>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Main content in .container; use .card sections for consistent styling -->
+    <main id="main" class="container">
+      <h1>About Me</h1>
+
+      <section class="card" aria-labelledby="whoiam">
+        <h2 id="background">My Background</h2>
+        <figure>
+          <img
+            src="{{ url_for('static', filename='images/GradPhoto.JPEG') }}"
+            width="300"
+            alt="Portrait of Abby Armour"
+          />
+        </figure>
+        <p>
+          I’m an Information Systems student at Indiana University’s Kelley
+          School of Business, with a focus on consulting and technology. I enjoy
+          turning ideas into clean, accessible web experiences and using data to
+          support smart decisions. I lead student organizations, facilitate
+          events, and build community—always with an eye toward clarity,
+          responsiveness, and measurable impact. I also love to turn up.
+        </p>
+      </section>
+
+      <section class="card" aria-labelledby="interests">
+        <h2 id="interests">Interests</h2>
+        <p>
+          I’m passionate about accessible web design, analytics, and responsible
+          AI. Outside of class, I enjoy swimming, turning up, hiking, women’s
+          college basketball (Go WNBA!), and projects that blend people,
+          process, and technology.
+        </p>
+      </section>
+
+      <section class="card" aria-labelledby="goals">
+        <h2 id="goals">Goals</h2>
+        <p>
+          Short-term, I’m strengthening my portfolio and consulting
+          toolkit—clear documentation, stakeholder communication, and thoughtful
+          design. Long-term, I aim to work in technology consulting, helping
+          teams ship solutions that are user-friendly, ethical, and
+          operationally sound. Overall, help people turn up!
+        </p>
+      </section>
+    </main>
+
+    <!-- Footer matches .site-footer -->
+    <footer class="site-footer">
+      <div class="container">
+        © <span id="year"></span> Abby Armour •
+        <a href="mailto:ararmour@iu.edu">ararmour@iu.edu</a> •
+        <a
+          href="https://www.linkedin.com/in/abbyarmour"
+          target="_blank"
+          rel="noopener"
+          >LinkedIn</a
+        >
+        <a
+          href="https://github.com/abbyarmour/AiDD_Assignment-5"
+          target="_blank"
+          rel="noopener"
+        >
+          • GitHub Repo</a
+        >
+      </div>
+    </footer>
+
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>
